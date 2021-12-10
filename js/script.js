@@ -19,18 +19,71 @@
 const feed = [
     {
         name: 'Sancho Panza',
-        pic: 'https://i.picsum.photos/id/667/200/300.jpg?hmac=nFrrPWfmtwoDnfNPyXPB8GuxdU_6ic8_cKQm7oyXw1Y',
-        data: '07/08/2020',
-        text: 'lorem lorem lorem',
-        img: 'https://i.picsum.photos/id/758/500/300.jpg?hmac=Hho2NXOXzla9Euf67--KssqEbKNuI02m4LekxfXRyvk',
-        like: '47'
+        proPic: 200,
+        date: new Date,
+        text: 'Oggi non posto immagini',
+        img: 150,
+        like: 47
+    },
+    {
+        name: 'Carlo Carli',
+        proPic: '',
+        date: new Date(),
+        text: 'Oggi metto imaagini a caso',
+        img: '',
+        like: 12
     },
     {
         name: 'Zorro Zarro',
-        pic: 'https://i.picsum.photos/id/514/200/300.jpg?hmac=2SFAKrM0w5MkU7I_tQM9mq1m6POUDSPrTYu5tb5Sqlg',
-        data: '09/12/2021',
+        proPic: 40,
+        date: new Date(),
         text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
-        img: 'https://i.picsum.photos/id/212/500/300.jpg?hmac=kGG5x0AzfRQapGOPUYqQtNgk6pvUNVbGDDjBCY6hJlg',
-        like: '52'
+        img: 20,
+        like: 52
     }
 ];
+
+// 2. container
+const container = document.getElementById('container');
+
+
+// 3. Creo un ciclo per stampare i post in pagina
+for (let i = 0; i < feed.length; i++) {
+    const element = feed[i];
+
+    const post = `
+        <div class="post">
+            <div class="post__header">
+                <div class="post-meta">                    
+                    <div class="post-meta__icon">
+                        <img class="profile-pic" src="https://unsplash.it/300/300?image=${element.proPic}" alt="${element.name}">                    
+                    </div>
+                    <div class="post-meta__data">
+                        <div class="post-meta__author">${element.name}</div>
+                        <div class="post-meta__time">${element.date}</div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="post__text">
+                ${element.text}
+            </div>
+            <div class="post__image">
+                <img src="https://unsplash.it/600/300?image=${element.img}" alt="">
+            </div>
+            <div class="post__footer">
+                <div class="likes js-likes">
+                    <div class="likes__cta">
+                        <a class="like-button  js-like-button" href="#" data-postid="1">
+                            <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                            <span class="like-button__label">Mi Piace</span>
+                        </a>
+                    </div>
+                    <div class="likes__counter">
+                        Piace a <b id="like-counter-1" class="js-likes-counter">${element.like}</b> persone
+                    </div>
+                </div> 
+            </div>            
+        </div>`;
+
+    container.innerHTML += post;
+}
