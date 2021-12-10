@@ -22,21 +22,20 @@ const feed = [
         proPic: 200,
         date: new Date,
         text: 'Oggi non posto immagini',
-        img: 150,
         like: 47
     },
     {
         name: 'Carlo Carli',
         proPic: '',
-        date: new Date(),
-        text: 'Oggi metto imaagini a caso',
+        date: new Date(2019, 7, 12),
+        text: 'Oggi metto immagini a caso',
         img: '',
         like: 12
     },
     {
         name: 'Zorro Zarro',
         proPic: 40,
-        date: new Date(),
+        date: new Date(2020, 10, 4),
         text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
         img: 20,
         like: 52
@@ -60,7 +59,7 @@ for (let i = 0; i < feed.length; i++) {
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${element.name}</div>
-                        <div class="post-meta__time">${element.date}</div>
+                        <div class="post-meta__time">${element.date.toDateString()}</div>
                     </div>                    
                 </div>
             </div>
